@@ -6,10 +6,81 @@ body {
   height: 100%;
   overflow: hidden;
 }
+/* 块级元素Flex布局申明 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* 设置背景图片的属性 */
 .theme {
   background: url(../images/water_wave_bg.gif);
   background-size: cover;
-  font-family: "STKaiti", Arial, Helvetica, sans-serif;
+  font-family: serif, "Microsoft YaHei";
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+}
+
+.title {
+  text-align: center;
+}
+
+.overview {
+  display: flex;
+  justify-content: space-around;
+}
+
+.statistics {
+  height: 80px;
+  width: 23%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+}
+.statistices-title {
+  color: #ffffff;
+  margin: 0;
+  padding: 10px;
+}
+
+.statistics-content {
+  margin: 0;
+  padding: 0px 10px;
+  font-size: 32px;
+}
+.statistics-proportion {
+  font-size: 50px;
+  margin: 0;
+  padding: 0px 10px;
+}
+
+.statistics-left {
+  flex-grow: 1;
+}
+.statistics-right {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all-tasks {
+  background-color: #31b48d;
+}
+.active-tasks {
+  background-color: #38a1f2;
+}
+.padding-tasks {
+  background-color: #7538c7;
+}
+.closed-tasks {
+  background-color: #3b67a4;
 }
