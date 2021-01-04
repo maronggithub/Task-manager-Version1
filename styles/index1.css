@@ -1,0 +1,32 @@
+/* 设置页面底层的背景并让整个页面平铺满显示屏 */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/water_wave_bg.gif");
+  /* 图片超出底层元素框的部分将被隐藏掉 */
+  overflow: hidden;
+  background-size: cover;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 页面内容只要的显示区域的背景设置 */
+.container {
+  width: 80%;
+  height: 80%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  opacity: 0.6;
+  box-shadow: 1px 1px 2px 1px white;
+}
+
+.title {
+  text-align: center;
+  font-family: serif, "Microsoft YaHei";
+  color: black;
+}
