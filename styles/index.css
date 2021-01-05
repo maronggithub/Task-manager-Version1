@@ -30,3 +30,82 @@ body {
   font-family: serif, "Microsoft YaHei";
   color: black;
 }
+
+/* 导航栏的设置,采用flex布局，并让四个项目水平均匀分布在主内容框中*/
+.overview {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 设置各部分统计框的尺寸属性 */
+.static {
+  display: flex;
+  width: 20%;
+  height: 80px;
+  border-radius: 10px;
+  /* border-color: white; */
+  /* color: white; */
+}
+/* 设置左右部分的属性 */
+.content-left {
+  flex-grow: 1;
+}
+
+.content-right {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 设置每个部分文本的属性 */
+/* 设置各任务统计框标题文本的属性 */
+.text-title {
+  color: white;
+  font-size: 20px;
+  margin: 0;
+  padding: 10px;
+}
+/* 设置各任务统计框左边数字文本的属性 */
+.text-number {
+  color: white;
+  font-size: 20px;
+  margin: 0;
+  padding: 0px 10px;
+}
+
+/* 设置各任务统计框右边百分比文本的属性 */
+.static-proportion {
+  color: white;
+  font-size: 30px;
+}
+/* 给四个部分分别添加背景 */
+.all-tasks {
+  background-color: #31b48d;
+  background: url("../images/all_tasks_bg.jpg"), rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+}
+.active-tasks {
+  background-color: #38a1f2;
+  background: url("../images/active_task_bg.svg"), rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+}
+
+.padding-tasks {
+  background-color: #7538c7;
+  background: url("../images/padding_tasks_bg.svg"), rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+}
+
+.closed-tasks {
+  background-color: #3b67a4;
+  background: url("../images/closed_tasks_bg.svg"), rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+}
