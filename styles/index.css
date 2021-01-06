@@ -3,7 +3,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-image: url("../images/water_wave_bg.gif");
+  background-image: url("../images/bg.gif");
   /* 图片超出底层元素框的部分将被隐藏掉 */
   overflow: hidden;
   background-size: cover;
@@ -21,7 +21,7 @@ body {
   height: 80%;
   background-color: #ffffff;
   border-radius: 15px;
-  opacity: 0.6;
+  opacity: 0.8;
   box-shadow: 1px 1px 2px 1px white;
 }
 
@@ -81,14 +81,14 @@ body {
 /* 给四个部分分别添加背景 */
 .all-tasks {
   background-color: #31b48d;
-  background: url("../images/all_tasks_bg.jpg"), rgba(0, 0, 0, 0.3);
+  background: url("../images/all_tasks_bg.jpg"), rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-position: center center;
   background-blend-mode: multiply;
 }
 .active-tasks {
   background-color: #38a1f2;
-  background: url("../images/active_task_bg.svg"), rgba(0, 0, 0, 0.3);
+  background: url("../images/active_task_bg.svg"), rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-position: center center;
   background-blend-mode: multiply;
@@ -96,7 +96,7 @@ body {
 
 .padding-tasks {
   background-color: #7538c7;
-  background: url("../images/padding_tasks_bg.svg"), rgba(0, 0, 0, 0.3);
+  background: url("../images/padding_tasks_bg.svg"), rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-position: center center;
   background-blend-mode: multiply;
@@ -104,8 +104,119 @@ body {
 
 .closed-tasks {
   background-color: #3b67a4;
-  background: url("../images/closed_tasks_bg.svg"), rgba(0, 0, 0, 0.3);
+  background: url("../images/closed_tasks_bg.svg"), rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-position: center center;
   background-blend-mode: multiply;
+}
+/* 设置任务显示框的属性 */
+.task-container {
+  height: 100%;
+}
+/* 设置title行的属性 */
+.title-bar {
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-list-title {
+  flex-grow: 2;
+}
+
+.task-list {
+  margin-left: 10px;
+  margin-right: 10px;
+  opacity: 0.9;
+  height: 100%;
+}
+
+/* .task-list-table {
+  display: flex;
+  justify-content: space-between;
+} */
+.task-list-header {
+  background-color: #cad0e6;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 5px 10px;
+  /* border-radius: 2px; */
+  /* box-shadow: 3px 3px 3px 3px grey; */
+  display: flex;
+  justify-content: flex-start;
+  /* width: calc(100% - 35px); */
+}
+
+/* 设置各个列表内容的属性 */
+ol {
+  margin: 0px;
+  padding: 0px;
+  overflow-y: scroll;
+}
+.task-item {
+  font-size: 15px;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgba(217, 219, 228, 0.6);
+  border-bottom: 1px solid #d5d6e0;
+}
+/* 分别设置各个项目的宽度 */
+.task-num {
+  flex-grow: 0.5;
+  text-align: left;
+  max-width: 5%;
+}
+.task-name {
+  flex-grow: 2;
+  text-align: left;
+  max-width: 20%;
+}
+.task-description {
+  flex-grow: 4.5;
+  text-align: left;
+  max-width: 45%;
+  /* 内容溢出元素框会被隐藏 */
+  overflow: hidden;
+  /* 超过元素框宽度的内容用省略号表示 */
+  text-overflow: ellipsis;
+  /* 文本显示为两行,超过部分隐藏并使用省略号*/
+  display: -webkit-box;
+  /* 从顶部向底部垂直布置元素*/
+  -webkit-box-orient: vertical;
+  /* 规定最多显示几行 */
+  -webkit-line-clamp: 1;
+}
+/* 设置悬停效果 */
+.task-description:hover {
+  /* 内容不会被修剪，会呈现在元素框之外 */
+  overflow: visible;
+  -webkit-box-orient: inherit;
+  text-overflow: inherit;
+  /* 光标呈现为指示链接的指针（一只手） */
+  cursor: pointer;
+}
+.task-deadline {
+  flex-grow: 1;
+  text-align: left;
+  max-width: 10%;
+}
+.task-status {
+  flex-grow: 1;
+  text-align: left;
+  max-width: 10%;
+}
+.taks-operation {
+  flex-grow: 1;
+  text-align: left;
+  max-width: 10%;
+}
+.active {
+  color: rgb(95, 143, 33);
+}
+.padding {
+  color: rgb(41, 113, 141);
+}
+.closed {
+  color: rgb(235, 85, 122);
 }
