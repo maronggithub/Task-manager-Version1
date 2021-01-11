@@ -262,12 +262,15 @@ ol {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0px 0px;
+  padding: 0px 5px;
+}
+.up-down-btn {
+  display: flex;
 }
 .sort-btn {
-  height: 9px;
+  height: 11px;
   cursor: pointer;
-  background-color: rgb(68, 66, 66);
+  background-color: #8a8a8a;
 }
 .sort-up {
   -webkit-mask: url(../images/sort_up.svg) no-repeat center;
