@@ -3,8 +3,10 @@
   <head>
     <title>Task Manager</title>
     <link rel="stylesheet" type="text/css" href="./styles/index.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/popwindow.css" />
     <script type="text/javascript" src="./js/index.js!"></script>
     <script type="text/javascript" src="./js/data.js"></script>
+    <script type="text/javascript" src="./js/popwindow.js"></script>
   </head>
   <!-- 构建页面主题 -->
   <body class="homepage">
@@ -77,11 +79,10 @@
               placeholder="Please enter task name to search"
             />
             <button class="title-bar-btn btn-search"><img src="./images/search.svg" /></button>
-            <button class="title-bar-btn btn-add"><img src="./images/add.svg" /></button>
-
+            <button class="title-bar-btn btn-add" onclick="createNewTaskWindow()"><img src="./images/add.svg" /></button>
           </div>
-
         </section>
+        
         <!-- 任务展示栏任务成列部分 -->
         <section class="task-list">
           <!-- 设置各个项目的标题 -->
@@ -148,6 +149,36 @@
 
 
     </main>
+    <!-- 创作模态框：点击添加任务按钮，弹出添加任务画面 -->
+    <div class="popup-modal">
+      <div class="modal-content">
+        <!-- 模态框标题 -->
+        <header class="modal-header">
+          <img src="./images/modal_add_icon.svg">
+          <h2 class="header-title">New A Task</h2>
+          <button class="btn-icon" >
+            <img src="./images/modal_cancel_icon.svg" />
+          </button>
+        </header>
+        <!-- 模态框内容 -->
+        <section class="add-content">
+          <label for="taskname">name</label>
+          <input type="text"/>
+          <label for="taskDeadline">deadline</label>
+          <input type="text" />
+          <label for="taskdescription">Description</label>
+          <textarea
+            rows="5"
+            maxlength="200"
+            placeholder="Please enter task descript, Maximum 200 characters"></textarea>
+            <!-- 模态框底部按钮 -->
+        </section>
+        <footer class="modal-footer">
+          <button class="modal-btn-cancle">取消</button>
+          <button class="modal-btn-confirm">确认</button>
+        </footer>
+      </div>
+    </div>
     
     
 
