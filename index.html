@@ -78,8 +78,8 @@
               class="search-input"
               placeholder="Please enter task name to search"
             />
-            <button class="title-bar-btn btn-search"><img src="./images/search.svg" /></button>
-            <button class="title-bar-btn btn-add" onclick="createNewTaskWindow()"><img src="./images/add.svg" /></button>
+            <button id="titleBtnSearch" class="title-bar-btn btn-search"><img src="./images/search.svg" /></button>
+            <button id="titleBtnAdd" class="title-bar-btn btn-add" onclick="appearpopup()"><img src="./images/add.svg" /></button>
           </div>
         </section>
         
@@ -150,32 +150,33 @@
 
     </main>
     <!-- 创作模态框：点击添加任务按钮，弹出添加任务画面 -->
-    <div class="popup-modal">
-      <div class="modal-content">
+    <div id="popupModal" class="popup-modal">
+      <div id="modalContent" class="modal-content">
         <!-- 模态框标题 -->
-        <header class="modal-header">
-          <img src="./images/modal_add_icon.svg">
-          <h2 class="header-title">New A Task</h2>
-          <button class="btn-icon" >
+        <header id="modalHeader" class="modal-header">
+          <img id="modalDddIcon" src="./images/modal_add_icon.svg">
+          <h2 id="headerModalTitle" class="header-title">New A Task</h2>
+          <button id="modalCloseBtn" class="btn-icon" onclick="closepopup()">
             <img src="./images/modal_cancel_icon.svg" />
           </button>
         </header>
         <!-- 模态框内容 -->
-        <section class="add-content">
-          <label for="taskname">name</label>
-          <input type="text"/>
+        <section id="addContent" class="add-content">
+          <label for="taskName">name</label>
+          <input id="taskName" type="text"/>
           <label for="taskDeadline">deadline</label>
-          <input type="text" />
-          <label for="taskdescription">Description</label>
+          <input id="taskDeadline" type="text" />
+          <label for="taskDescription">Description</label>
           <textarea
+            id="textDescription"
             rows="5"
             maxlength="200"
             placeholder="Please enter task descript, Maximum 200 characters"></textarea>
             <!-- 模态框底部按钮 -->
         </section>
-        <footer class="modal-footer">
-          <button class="modal-btn-cancle">取消</button>
-          <button class="modal-btn-confirm">确认</button>
+        <footer id="modalFooter" class="modal-footer">
+          <button id="mdoalBtnCancle" class="modal-btn-cancle" onclick="canclepopup()">取消</button>
+          <button id="modalBtnConfirm" class="modal-btn-confirm">确认</button>
         </footer>
       </div>
     </div>
