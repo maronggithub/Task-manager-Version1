@@ -1,1 +1,137 @@
 // You Need to implement
+// 输入内容作为数组传入，每个元素的数据类型是对象
+const tasks = [
+  {
+    id:1,
+    name:'learning JavaScript',
+    description:'Finish all the homework of JS study,and Finish all the homework of JS study',
+    deadline:'2021/02/01',
+    status:'Active',
+  },
+  {
+    id:2,
+    name:'learning JavaScript',
+    description:'Finish all the homework of JS study,and Finish all the homework of JS study',
+    deadline:'2021/02/01',
+    status:'Padding',
+  },
+  {
+    id:3,
+    name:'learning JavaScript',
+    description:'Finish all the homework of JS study,and Finish all the homework of JS study',
+    deadline:'2021/02/01',
+    status:'Closed',
+  },
+]
+function showTasks() {
+  // 定位到需要添加内容的地方
+  let taskBody = document.getElementById("taskbody");
+  // 将其内容先先设置为空，然后添加元素
+  taskBody.innerHTML="";
+  // 创建添加task的函数
+  tasks.forEach((task,index) => {
+    // 在主要的元素显示块中添加li的元素
+    let li = generateTaskElement(task,index + 1);
+    // 给ol里面添加创建好的li元素
+    taskBody.appendChild(li);
+  });
+}
+
+function generateTaskElement(task,index) {
+  // 先创建一个li元素
+  let li = document.createElement('li');
+  // 与此同时把li元素的属性一同设置，从而显示到页面上
+  li.classList.add('task-item');
+  // 创建任务编号的元素span
+  let indexElement =document.createElement('span');
+  // 同时给这一元素设置属性
+  indexElement.classList.add('task-num');
+  // 给span元素添加文本内容
+  indexElement.textContent= index;
+  // 再在li里面放入span
+  li.appendChild(indexElement);
+
+  
+  // 创建任务名称的元素span
+  let nameElement =document.createElement('span');
+  // 同时给这一元素设置属性
+  nameElement.classList.add('task-name');
+  // 给span元素添加文本内容
+  indexElement.textContent= task.name;
+  // 再在li里面放入span
+  li.appendChild(nameElement);
+
+  // 创建任务描述的元素span
+  let desElement =document.createElement('span');
+  // 同时给这一元素设置属性
+  desElement.classList.add('task-description');
+  // 给span元素添加文本内容
+  indexElement.textContent= task.description;
+  // 再在li里面放入span
+  li.appendChild(desElement);
+
+  // 创建任务期限的元素span
+  let deadlineElement =document.createElement('span');
+  // 同时给这一元素设置属性
+  deadlineElement.classList.add('task-deadline');
+  // 给span元素添加文本内容
+  indexElement.textContent= task.deadline;
+  // 再在li里面放入span
+  li.appendChild(deadlineElement);
+
+  // 创建任务状态的元素span
+  let statusElement =document.createElement('span');
+  statusElement.classList.add('task-status');
+  // 利用switch 条件判断句，根据‘状态’的刷入内容，决定显示哪一个（因为字体颜色不同）
+  switch (task.status) {
+    case 'Active':
+      // 如果状态是Active则属性变为active状态对应的属性（不同状态，字体颜色不同）
+      statusElement.classList.add('active');
+      break;
+    case 'Padding':
+      statusElement.classList.add('padding');
+      break;
+    case 'Closed':
+      statusElement.classList.add('closed');
+      break;
+    default:
+  }
+  // 给span元素添加文本内容
+  statusElement.textContent = task.status;
+  // 再在li里面放入span
+  li.appendChild(statusElement);
+
+  // 创建删除任务和修改任务的元素span
+  let operatorElement = document.createElement('span');
+  // 同时给这一元素设置属性
+  deadlineElement.classList.add('task-operation');
+  // 再在这个span元素里面添加两个按钮
+  let deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('btn-icon');
+  deleteBtn.setAttribute('onclick', 'deleteTask()');
+  // 再在按钮的部分添加图片
+  let deleteIcon = document.createElement('img');
+  // 设置图片属性
+  deleteIcon.setAttribute('src', './images/delete.svg');
+  // 把img添加到button元素里面去
+  deleteBtn.appendChild(deleteIcon);
+  // 把Button元素添加到span元素里面去
+  operatorElement.appendChild(deleteBtn);
+  
+  // 创建修改任务的按钮
+  let updateBtn = document.createElement('button');
+  updateBtn.classList.add('btn-icon');
+  // 再在按钮的部分添加图片
+  let uopdateIcon = document.createElement('img');
+  // 设置图片属性
+  uopdateIcon.setAttribute('src', './images/update.svg');
+  // 把img添加到button元素里面去
+  updateBtn.appendChild(uopdateIcon);
+  // 把Button元素添加到span元素里面去
+  operatorElement.appendChild(updateBtn);
+  // 最后把operator元素添加到li中
+  li.appendChild(operatorElement);
+  // 函数返回li元素
+  return li;
+
+}

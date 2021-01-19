@@ -9,7 +9,7 @@
     <script type="text/javascript" src="./js/popwindow.js"></script>
   </head>
   <!-- 构建页面主题 -->
-  <body class="homepage">
+  <body class="homepage" onload="showTasks()">
     <!-- 创建页面主要的内容显示区域 -->
     <main class="container">
       <!-- 创建任务框的头部，显示标题 -->
@@ -84,7 +84,7 @@
         </section>
         
         <!-- 任务展示栏任务成列部分 -->
-        <section class="task-list">
+        <section class="task-list" >
           <!-- 设置各个项目的标题 -->
          
         <!-- <table class="task-list-table" cellspacing="40">
@@ -114,36 +114,7 @@
           <div class="task-operation">Operation</div>
          </header>
          <!-- 利用列表创建添加各个任务 -->
-         <ol>
-          <li class="task-item">
-            <span class="task-num">1</span>
-            <span class="task-name">learning JavaScript</span>
-            <span class="task-description">Finish all the homework of JS study,and Finish all the homework of JS study,</span>
-            <span class="task-deadline">2021/02/01</span>
-            <span class="task-status active" >Acrtive</span>
-            <span class="task-operation"><button class="btn-icon"><img src="./images/delete.svg" /></button><button class="btn-icon"><img src="./images/update.svg"></button></span>
-          </li>
-          <li class="task-item">
-            <span class="task-num">2</span>
-            <span class="task-name">learning JavaScript</span>
-            <span class="task-description">Finish all the homework of JS study,and Finish all the homework of JS study,</span>
-            <span class="task-deadline">2021/02/01</span>
-            <span class="task-status padding">padding</span>
-          
-            <span class="task-operation"><button class="btn-icon"><img src="./images/delete.svg" /></button><button
-                class="btn-icon"><img src="./images/update.svg"></button></span>
-          </li>
-          <li class="task-item">
-            <span class="task-num">3</span>
-            <span class="task-name">learning JavaScript</span>
-            <span class="task-description">Finish all the homework of JS study,and Finish all the homework of JS study,</span>
-            <span class="task-deadline">2021/02/01</span>
-            <span class="task-status closed">closed</span>
-            <span class="task-operation"><button class="btn-icon"><img src="./images/delete.svg" /></button><button
-                class="btn-icon"><img src="./images/update.svg"></button></span>
-          </li>
-          
-         </ol>
+         <ol id="taskbody"></ol>
         </section>
       </div>
 
