@@ -28,13 +28,17 @@ function showTasks() {
   let taskBody = document.getElementById("taskbody");
   // 将其内容先先设置为空，然后添加元素
   taskBody.innerHTML="";
-  // 创建添加task的函数
-  tasks.forEach((task,index) => {
+  // 创建添加task的函数(当内容不为空的时候添加)
+  if (tasks && tasks.length > 0) {
+    tasks.forEach((task,index) => {
     // 在主要的元素显示块中添加li的元素
     let li = generateTaskElement(task,index + 1);
     // 给ol里面添加创建好的li元素
     taskBody.appendChild(li);
   });
+
+  }
+  
 }
 
 function generateTaskElement(task,index) {
@@ -134,4 +138,28 @@ function generateTaskElement(task,index) {
   // 函数返回li元素
   return li;
 
+}
+
+
+
+
+// 添加搜索功能的函数
+function searchTask() {
+  // 获取输入栏的文本信息
+  let searchText=document.getElementById('searchText').value;
+  // 如果输入的内容不为空，则对所有任务进行过滤并显示目标任务(注意使用trim()函数去掉文本前后的空格)
+  // filter()函数是在名为task的数组array中去搜索关键字
+  if (searchText.trim()) {
+    // 通过用filter函数来提取文本的关键字,includes()函数用来查找给定的数组中是否有指定的值
+    let　filteredTask = task.filter((task) => task.name.includes(searchText.trim()));
+    // filter返回的是一个新的数组有index 和对应的值
+     showTasks(filteredTask);
+  };
+   
+}
+// 同时按enter键也可以进行查询
+function search(event) {
+  if (event.keyCode === 13) {
+    searchTask()
+  };
 }

@@ -74,11 +74,12 @@
           <h2 class="task-list-title">Your Tasks List</h2>
           <div class="search-add">
             <input
+              id="searchText"
               type="text"
               class="search-input"
               placeholder="Please enter task name to search"
             />
-            <button id="titleBtnSearch" class="title-bar-btn btn-search"><img src="./images/search.svg" /></button>
+            <button id="titleBtnSearch" class="title-bar-btn btn-search" onclick="searchTask()"><img src="./images/search.svg" /></button>
             <button id="titleBtnAdd" class="title-bar-btn btn-add" onclick="appearpopup()"><img src="./images/add.svg" /></button>
           </div>
         </section>
