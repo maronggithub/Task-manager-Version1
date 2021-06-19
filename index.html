@@ -9,7 +9,7 @@
     <script type="text/javascript" src="./js/popwindow.js"></script>
   </head>
   <!-- 构建页面主题 -->
-  <body class="homepage" onload="showTasks()">
+  <body class="homepage" onload="showAllTasks()">
     <!-- 创建页面主要的内容显示区域 -->
     <main class="container">
       <!-- 创建任务框的头部，显示标题 -->
@@ -19,11 +19,11 @@
       <!-- 制作任务统计栏，并通过section创建四个部分来添加不同的内容 -->
       <nav class="overview">
         <!-- 创建第一个部分：所有任务统计栏，并且再划分两个部分，左边显示文本内容，右边显示数字 -->
-        <section class="static all-tasks">
+        <section id="allTasks"class="static all-tasks" onclick="filterTasksByStatus('All')">
           <!-- 左边 -->
           <div class="content-left">
             <h3 class="text-title">All tasks</h3>
-            <p class="text-number">0</p>
+            <p id="allTasksCount" class="text-number">0</p>
           </div>
           <!-- 右边 -->
           <div class="content-right">
@@ -31,39 +31,39 @@
           </div>
         </section>
         <!-- 创建第二个部分：进行中任务统计栏，并且再划分两个部分，左边显示文本内容，右边显示数字 -->
-        <section class="static active-tasks">
+        <section id="activeTasks" class="static active-tasks" onclick="filterTasksByStatus('Active')">
           <!-- 左边 -->
           <div class="content-left">
             <h3 class="text-title">Active Tasks</h3>
-            <p class="text-number">0</p>
+            <p id="activeTasksCount" class="text-number">0</p>
           </div>
           <!-- 右边 -->
           <div class="content-right">
-            <p class="static-proportion">0%</p>
+            <p id="activeTasksProportion" class="static-proportion">0%</p>
           </div>
         </section>
         <!-- 创建第三个部分：进行中任务统计栏，并且再划分两个部分，左边显示文本内容，右边显示数字 -->
-        <section class="static padding-tasks">
+        <section id="paddingTasks"class="static padding-tasks" onclick="filterTasksByStatus('Padding')">
           <!-- 左边 -->
           <div class="content-left">
             <h3 class="text-title">Padding Tasks</h3>
-            <p class="text-number">0</p>
+            <p id="paddingTasksCount" class="text-number">0</p>
           </div>
           <!-- 右边 -->
           <div class="content-right">
-            <p class="static-proportion">0%</p>
+            <p id="paddingTasksProportion" class="static-proportion">0%</p>
           </div>
         </section>
         <!-- 创建第三个部分：进行中任务统计栏，并且再划分两个部分，左边显示文本内容，右边显示数字 -->
-        <section class="static closed-tasks">
+        <section id="closedTasks" class="static closed-tasks" onclick="filterTasksByStatus('Closed')">
           <!-- 左边 -->
           <div class="content-left">
             <h3 class="text-title">Closed Tasks</h3>
-            <p class="text-number">0</p>
+            <p id="closedTasksCount" class="text-number">0</p>
           </div>
           <!-- 右边 -->
           <div class="content-right">
-            <p class="static-proportion">0%</p>
+            <p id="closedTasksProportion" class="static-proportion">0%</p>
           </div>
         </section>
       </nav>

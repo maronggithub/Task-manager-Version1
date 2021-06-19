@@ -163,3 +163,78 @@ function search(event) {
     searchTask()
   };
 }
+
+
+// 创建状态栏的函数
+funtion filterTasksByStatus(status) {
+  switch (status) {
+    //点击全部任务的时候，则会调用显示全部任务的函数
+    case 'All':
+    default:
+      showAllTasks();
+      break;
+    case 'Active':
+    case 'Padding':
+    case 'Closed':
+      //当点击不同状态的任务的时候，则会按照状态显示任务
+      showTasks(tasks.filter((task) => task.status === status));
+      break;
+  }
+}
+
+//展示所有任务函数
+function showAllTasks() {
+  showStatisticesCards();
+  showTasks(tasks);
+}
+
+function showStatisticesCards() {
+  //tasks是数组，计算数组的长度，也就是计算有多少tasks，textContent 属性设置或者返回指定节点的文本内容。
+  //如果你设置了 textContent 属性, 任何的子节点会被移除及被指定的字符串的文本节点替换。
+  let allTasksCount = tasks.length;
+  //给allTasksCount添加文本内容
+  document.getElementById('allTasksCount').textContent = allTasksCount;
+  //得到状态是active任务的数量
+  let activeTasksCount = tasks.filter((task) => task.status === 'Active')
+    .length;
+  document.getElementById('activeTasksCount').textContent = activeTasksCount;
+  //计算active任务的百分比
+  //round() 方法可把一个数字舍入为最接近的整数：
+  let activeTasksProportion =
+    allTasksCount > 0
+      ? Math.round((activeTasksCount / allTasksCount) * 100) + '%'
+      : '0%';
+  document.getElementById(
+    'activeTasksProportion'
+  ).textContent = activeTasksProportion;
+  //得到状态是padding任务的数量
+  let paddingTasksCount = tasks.filter((task) => task.status === 'Padding')
+    .length;
+  document.getElementById('paddingTasksCount').textContent = paddingTasksCount;
+  //计算padding任务的百分比
+  let paddingTasksProportion =
+    allTasksCount > 0
+      ? Math.round((paddingTasksCount / allTasksCount) * 100) + '%'
+      : '0%';
+  document.getElementById(
+    'paddingTasksProportion'
+  ).textContent = paddingTasksProportion;
+  let closedTasksCount = tasks.filter((task) => task.status === 'Closed')
+    .length;
+  document.getElementById('closedTasksCount').textContent = closedTasksCount;
+  let closedTasksProportion =
+    allTasksCount > 0
+      ? Math.round((closedTasksCount / allTasksCount) * 100) + '%'
+      : '0%';
+  document.getElementById(
+    'closedTasksProportion'
+  ).textContent = closedTasksProportion;
+
+}
+
+
+
+
+
+
+

@@ -49,6 +49,7 @@ body {
   border-radius: 10px;
   /* border-color: white; */
   /* color: white; */
+  cursor: pointer;
 }
 /* 设置左右部分的属性 */
 .content-left {

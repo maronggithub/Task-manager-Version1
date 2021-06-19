@@ -38,3 +38,4 @@ function canclepopup() {
   document.querySelector(".popup-modal").style.display ="none";
 
 };
+
