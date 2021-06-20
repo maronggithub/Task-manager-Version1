@@ -121,6 +121,26 @@
 
 
     </main>
+    <!-- 创作删除任务的模态框：点击添加任务按钮，弹出添加任务画面 -->
+    <div id="deleteModal" class="delete-Modal">
+      <header id="deleteModalHeader" class="delete-ModalHeader">
+        <img id="modalDeleteIcon" alt="icon">
+        <h2 id="deleteModalTitle" class="delete-ModalTitle"></h2>
+        <button id="deleteModalBtn" class="btn-icon" onclick="closepopup()">
+          <img src="./images/modal_cancel_icon.svg" />
+        </button>
+      </header>
+      <!-- 提示是否要删除这条任务的文本显示部分 -->
+      <section id="deleteModalContent" class="delete-ModalContent"></section>
+      <!-- 模态框底部按钮 -->
+      </section>
+      <footer id="deleteModalFooter" class="delete-ModalFooter">
+        <button id="deleteMdoalBtnCancle" class="delete-modal-btn-cancle" onclick="canclepopup()">取消</button>
+        <button id="deleteModalBtnConfirm" class="delete-modal-btn-confirm">确认</button>
+      </footer>
+      
+    </div>
+
     <!-- 创作模态框：点击添加任务按钮，弹出添加任务画面 -->
     <div id="popupModal" class="popup-modal">
       <div id="modalContent" class="modal-content">

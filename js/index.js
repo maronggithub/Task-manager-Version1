@@ -112,7 +112,7 @@ function generateTaskElement(task,index) {
   // 再在这个span元素里面添加两个按钮
   let deleteBtn = document.createElement('button');
   deleteBtn.classList.add('btn-icon');
-  deleteBtn.setAttribute('onclick', 'deleteTask()');
+  deleteBtn.setAttribute('onclick', 'showDeleteModalPopover(' + task.id + ')');
   // 再在按钮的部分添加图片
   let deleteIcon = document.createElement('img');
   // 设置图片属性
@@ -166,7 +166,7 @@ function search(event) {
 
 
 // 创建状态栏的函数
-funtion filterTasksByStatus(status) {
+function filterTasksByStatus(status) {
   switch (status) {
     //点击全部任务的时候，则会调用显示全部任务的函数
     case 'All':
