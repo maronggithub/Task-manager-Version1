@@ -49,7 +49,7 @@ function showDeleteModalPopover(id) {
   let deleteModalContent = document.getElementById('deleteModalContent');
   deleteModalContent.innerHTML = '';
   let p = document.createElement('p');
-  let taskName = tasks.find((task) => task.id === id).name;
+  let taskName = findTask(id).name;
   p.textContent = 'Do you confirm to delete task: "' + taskName + '" ?';
   deleteModalContent.appendChild(p);
   let deleteModalBtnConfirm = document.getElementById('deleteModalBtnConfirm');
@@ -58,7 +58,9 @@ function showDeleteModalPopover(id) {
 }
 
 function deleteTask(id) {
-  tasks = tasks.filter((task) => task.id !== id);
-  showAllTasks();
+  removeTask(id);
+  renderPage();
   closepopup();
 }
+
+

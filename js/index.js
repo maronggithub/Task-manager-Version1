@@ -1,33 +1,14 @@
 // You Need to implement
 // 输入内容作为数组传入，每个元素的数据类型是对象
-const tasks = [
-  {
-    id:1,
-    name:'learning JavaScript',
-    description:'Finish all the homework of JS study,and Finish all the homework of JS study',
-    deadline:'2021/02/01',
-    status:'Active',
-  },
-  {
-    id:2,
-    name:'learning JavaScript',
-    description:'Finish all the homework of JS study,and Finish all the homework of JS study',
-    deadline:'2021/02/01',
-    status:'Padding',
-  },
-  {
-    id:3,
-    name:'learning JavaScript',
-    description:'Finish all the homework of JS study,and Finish all the homework of JS study',
-    deadline:'2021/02/01',
-    status:'Closed',
-  },
-]
+
+
+
 function showTasks() {
   // 定位到需要添加内容的地方
   let taskBody = document.getElementById("taskbody");
   // 将其内容先先设置为空，然后添加元素
   taskBody.innerHTML="";
+  console.log(tasks);
   // 创建添加task的函数(当内容不为空的时候添加)
   if (tasks && tasks.length > 0) {
     tasks.forEach((task,index) => {
@@ -151,7 +132,7 @@ function searchTask() {
   // filter()函数是在名为task的数组array中去搜索关键字
   if (searchText.trim()) {
     // 通过用filter函数来提取文本的关键字,includes()函数用来查找给定的数组中是否有指定的值
-    let　filteredTask = task.filter((task) => task.name.includes(searchText.trim()));
+    let filteredTasks = findTasksByName(searchText.trim());
     // filter返回的是一个新的数组有index 和对应的值
      showTasks(filteredTask);
   };
@@ -177,21 +158,25 @@ function filterTasksByStatus(status) {
     case 'Padding':
     case 'Closed':
       //当点击不同状态的任务的时候，则会按照状态显示任务
-      showTasks(tasks.filter((task) => task.status === status));
+      showTasks(findTasksByStatus(status));
       break;
   }
 }
 
 //展示所有任务函数
 function showAllTasks() {
+  saveAllTasks(tasks);
+  renderPage();
+}
+function renderPage() {
   showStatisticesCards();
-  showTasks(tasks);
+  showTasks(getAllTasks());
 }
 
 function showStatisticesCards() {
   //tasks是数组，计算数组的长度，也就是计算有多少tasks，textContent 属性设置或者返回指定节点的文本内容。
   //如果你设置了 textContent 属性, 任何的子节点会被移除及被指定的字符串的文本节点替换。
-  let allTasksCount = tasks.length;
+  let allTasksCount = getAllTasks().length;
   //给allTasksCount添加文本内容
   document.getElementById('allTasksCount').textContent = allTasksCount;
   //得到状态是active任务的数量
